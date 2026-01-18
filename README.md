@@ -32,3 +32,4 @@ What I have learned:
 4. Text = p, h
 5. TouchableOpacity / Pressable = Button
 - Pressable is more customizable, https://reactnative.dev/docs/pressable
+6. Ctrl + Alt + L - reformat the code
