@@ -10,8 +10,10 @@
 - (npx) expo start --tunnel - tarts the bundler and exposes it using a tunnel (Expo uses ngrok internally; no separate install required).
 - This is useful for rapid prototyping and development by sharing the dev server over the internet (tunnel/ngrok) for remote
 - testing
-- npx expo lint - runs ESLint for Expo project. Checks JavaScript/TypeScript files and reports style/errors
-- {PixelRatio.get()} - returns the device pixel density 
+- npx expo lint - runs ESLint for Expo project. Checks JavaScript/TypeScript files and reports style/errors 
+- in relation to the installed dependency (such as eslint-plugin-react-native) it can for instance check unused styles
+- npm install --save-dev eslint prettier eslint-plugin-prettier eslint-plugin-react-native eslint-config-expo (check eslint.config.js of this project)
+- it can now check unused styles 
 
 Terms or Commands Learned
 - npx - Node package executor (executes packages from the Node package repository without installing them globally on the machine)
