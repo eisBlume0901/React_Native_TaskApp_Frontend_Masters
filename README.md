@@ -20,8 +20,10 @@ Terms or Commands Learned
 Important
 1. Ensure that package manager supports node modules linking to allow test changes in real-time within another project
 - without publishing it to the npm registry.
-2. condition && <Component> is not recommended because if there is non-boolean values like 0 or '' will render an unexpected output
-- Do a full statement instead Ternary operators is recommended
+2. condition && <Component> is not recommended because if there is non-boolean values like 0, '', NaN will render an unexpected output
+- Do a full conditional statement always.
+3. Stylesheet is always at the end of the file 
+4. Create a theme.ts for commonly used properties to globally access them.
 
 What I have learned:
 1. React Native is split into two: JavaScript runtime - implements React code, native - renders UI and provides platform APIs
