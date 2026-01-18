@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Pressable } from 'react-native';
 import { theme } from "./theme";
 
 export default function App() {
   return (
     <View style={styles.container}>
+    <Pressable onPress={() => console.log("Pressed")} style={{ backgroundColor: "lightBlue"}}>
+        <Text>Press me</Text>
+    </Pressable>
       <View style={styles.itemContainer}>
         <Text style={styles.itemText}>Pancakes</Text>
       </View>

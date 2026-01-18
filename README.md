@@ -28,3 +28,7 @@ Important
 What I have learned:
 1. React Native is split into two: JavaScript runtime - implements React code, native - renders UI and provides platform APIs
 2. Expo Go is a React Native framework
+3. View = div
+4. Text = p, h
+5. TouchableOpacity / Pressable = Button
+- Pressable is more customizable, https://reactnative.dev/docs/pressable
