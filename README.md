@@ -11,7 +11,7 @@
 - This is useful for rapid prototyping and development by sharing the dev server over the internet (tunnel/ngrok) for remote
 - testing
 - npx expo lint - runs ESLint for Expo project. Checks JavaScript/TypeScript files and reports style/errors
-- {PixelRatio.get()} - returns the device pixel s=
+- {PixelRatio.get()} - returns the device pixel density 
 
 Terms or Commands Learned
 - npx - Node package executor (executes packages from the Node package repository without installing them globally on the machine)
