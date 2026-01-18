@@ -6,9 +6,10 @@ import {ShoppingListItem} from "./components/ShoppingListItem";
 export default function App() {
   return (
     <View style={styles.container}>
-        <ShoppingListItem name="Coffee" />
-        <ShoppingListItem name="Banana" />
-        <ShoppingListItem name="Sourdough Bread" />
+        <ShoppingListItem name={"Coffee"} isCompleted={false}/>
+        {/* isCompleted is also same with isCompleted={true} */}
+        <ShoppingListItem name="Banana" isCompleted />
+        <ShoppingListItem name="Sourdough Bread" isCompleted/>
       <StatusBar style="auto" />
     </View>
   );

@@ -2,10 +2,11 @@ import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { theme } from "../theme";
 
 type Props = {
-  name?: string; // name? means the name property is optional by using ?
+  name: string; // name? means the name property is optional by using ?
+  isCompleted?: boolean;
 };
 
-export function ShoppingListItem({ name }: Props) {
+export function ShoppingListItem({ name, isCompleted }: Props) {
   const handleDelete = () => {
     Alert.alert(
       `Are you sure you want to delete ${name}?`,
@@ -25,11 +26,13 @@ export function ShoppingListItem({ name }: Props) {
   };
 
   return (
-    <View style={styles.itemContainer}>
-      <Text style={styles.itemText}>{name}</Text>
+    <View style={[
+      styles.itemContainer,
+      isCompleted && styles.completedContainer]}>
+      <Text style={[styles.itemText, isCompleted && styles.completedText]}>{name}</Text>
       <TouchableOpacity
         onPress={handleDelete}
-        style={styles.button}
+        style={[styles.button, undefined]}
         activeOpacity={0.8}
       >
         <Text style={styles.buttonText}>Delete</Text>
@@ -47,6 +50,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  completedContainer: {
+    backgroundColor: theme.colorLightGrey,
+    borderBottomColor: theme.colorGrey,
+  },
+  completedText: {
+    textDecorationLine: "line-through",
+    textDecorationColor: theme.colorGrey,
+    color: theme.colorGrey,
   },
   itemText: {
     fontSize: 18,
