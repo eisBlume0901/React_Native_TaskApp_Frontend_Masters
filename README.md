@@ -25,6 +25,8 @@
 - npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar
 - installs Expo Router (file\-based navigation), safe area handling, native screen management, deep linking support, app constants, and status bar control.- 
 
+- npx expo start --reset-cache - always do this whenever there is changes in the code to resolve bundling or module issues
+
 Terms or Commands Learned
 - npx - Node package executor (executes packages from the Node package repository without installing them globally on the machine)
 - npx command should only be used for NodeJS frontend frameworks (npm install is preferred for backend)
@@ -37,9 +39,9 @@ Important
 - Do a full conditional statement always.
 3. Stylesheet is always at the end of the file 
 4. Create a theme.ts for commonly used properties to globally access them.
-5. Scheme \- add a scheme field in app.json (e.g. "scheme": "taskly") to define a custom URL scheme like taskly://.  
+5. Know how to do navigation: https://kadikraman.github.io/react-native-v3-course/docs/navigation/6-1-install-navigation/
+6. Scheme - add a scheme field in app.json (e.g. "scheme": "taskly") to define a custom URL scheme like taskly://.  
 - This enables deep linking so the app can be opened directly to specific screens from links, notifications, or other apps.
-
 
 What I have learned:
 1. React Native is split into two: JavaScript runtime - implements React code, native - renders UI and provides platform APIs
