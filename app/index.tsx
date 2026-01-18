@@ -1,9 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
-import { theme } from "./theme";
-import {ShoppingListItem} from "./components/ShoppingListItem";
+import { theme } from "../theme";
+import {ShoppingListItem} from "../components/ShoppingListItem";
 
-export default function App() {
+export default function Index() {
   return (
     <View style={styles.container}>
         <ShoppingListItem name={"Coffee"} isCompleted={false}/>
