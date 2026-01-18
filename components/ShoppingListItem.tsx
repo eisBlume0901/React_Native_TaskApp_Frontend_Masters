@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { theme } from "../theme";
+import Ionicons from "@expo/vector-icons/Ionicons";
+
 
 type Props = {
   name: string; // name? means the name property is optional by using ?
@@ -26,16 +28,25 @@ export function ShoppingListItem({ name, isCompleted }: Props) {
   };
 
   return (
-    <View style={[
-      styles.itemContainer,
-      isCompleted ? styles.completedContainer : undefined]}>
-      <Text style={[styles.itemText, isCompleted ? styles.completedText : undefined]}>{name}</Text>
+    <View
+      style={[
+        styles.itemContainer,
+        isCompleted ? styles.completedContainer : undefined,
+      ]}
+    >
+      <Text
+        style={[
+          styles.itemText,
+          isCompleted ? styles.completedText : undefined,
+        ]}
+      >
+        {name}
+      </Text>
       <TouchableOpacity
         onPress={handleDelete}
-        style={[styles.button, undefined]}
         activeOpacity={0.8}
       >
-        <Text style={styles.buttonText}>Delete</Text>
+        <Ionicons name="close-circle" size={24} color={isCompleted ? theme.colorGrey : theme.colorRed} />
       </TouchableOpacity>
     </View>
   );
@@ -45,7 +56,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     borderBottomWidth: 1,
     borderBottomColor: theme.colorCerulean,
-    paddingHorizontal: 8,
+    paddingHorizontal: 18,
     paddingVertical: 16,
     flexDirection: "row",
     alignItems: "center",
@@ -63,16 +74,5 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 18,
     fontWeight: 200,
-  },
-  button: {
-    backgroundColor: theme.colorBlack,
-    padding: 8,
-    borderRadius: 6,
-  },
-  buttonText: {
-    color: theme.colorWhite,
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    letterSpacing: 1,
   },
 });

@@ -14,6 +14,7 @@
 - in relation to the installed dependency (such as eslint-plugin-react-native) it can for instance check unused styles
 - npm install --save-dev eslint prettier eslint-plugin-prettier eslint-plugin-react-native eslint-config-expo (check eslint.config.js of this project)
 - it can now check unused styles 
+- npx expo install @expo/vector-icons - installing Expo icons (such as Ionicons)
 
 Terms or Commands Learned
 - npx - Node package executor (executes packages from the Node package repository without installing them globally on the machine)
@@ -35,3 +36,4 @@ What I have learned:
 5. TouchableOpacity / Pressable = Button
 - Pressable is more customizable, https://reactnative.dev/docs/pressable
 6. Ctrl + Alt + L - reformat the code
+7. SVG is not efficient to native apps which can blow memory/CPU on mobile that can slowdown or crash the app
