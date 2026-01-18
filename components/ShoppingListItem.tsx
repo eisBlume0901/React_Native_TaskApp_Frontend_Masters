@@ -28,8 +28,8 @@ export function ShoppingListItem({ name, isCompleted }: Props) {
   return (
     <View style={[
       styles.itemContainer,
-      isCompleted && styles.completedContainer]}>
-      <Text style={[styles.itemText, isCompleted && styles.completedText]}>{name}</Text>
+      isCompleted ? styles.completedContainer : undefined]}>
+      <Text style={[styles.itemText, isCompleted ? styles.completedText : undefined]}>{name}</Text>
       <TouchableOpacity
         onPress={handleDelete}
         style={[styles.button, undefined]}
