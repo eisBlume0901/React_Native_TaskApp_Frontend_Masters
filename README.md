@@ -42,7 +42,11 @@ Important
 5. Know how to do navigation: https://kadikraman.github.io/react-native-v3-course/docs/navigation/6-1-install-navigation/
 6. Scheme - add a scheme field in app.json (e.g. "scheme": "taskly") to define a custom URL scheme like taskly://.  
 - This enables deep linking so the app can be opened directly to specific screens from links, notifications, or other apps.
-7. _layout.tsx - tells how screens in a folder should be laid out such as defining navigation type (stack, tab, modal) and adding headers
+7. _layout.tsx - tells how screens in a folder should be laid out such as defining navigation type (stack, tab, modal) and adding header
+8. Link - useful for sending the user to somewhere specific. Router - use it when navigation happens as a result of logic (after a fetch, after a timer)
+9. router methods
+- navigate - 
+
 
 What I have learned:
 1. React Native is split into two: JavaScript runtime - implements React code, native - renders UI and provides platform APIs
