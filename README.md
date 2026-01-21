@@ -55,6 +55,8 @@ Important
 - .canGoBack() - returns true or false if there is something to go back to (useful before calling back() to avoid weird behavior)
 - .setParams() - updates the current route\'s search/query parameters without navigating away
 - .prefetch() - preloads the code/data for a route in the background, makes the next navigation to that screen faster
+10. Stack vs Tab vs Modal - stack is pile of screens (List to Details, Home to Settings, Login to Home), tabs is multiple root sections side by side
+- (Home, Search, Profile, Settings), and modal is temporary dialog over the current screen (Add item form, edit profile form, filter or sort dialog)
 
 
 What I have learned:

@@ -12,12 +12,6 @@ export default function Index() {
       <ShoppingListItem name="Banana" isCompleted />
       <ShoppingListItem name="Sourdough Bread" isCompleted />
       <StatusBar style="auto" />
-      <Link
-        href={"/counter"}
-        style={{ textAlign: "center", marginBottom: 18, fontSize: 24 }}
-      >
-        Go to counter
-      </Link>
     </View>
   );
 }
