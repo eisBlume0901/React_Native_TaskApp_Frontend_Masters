@@ -45,7 +45,16 @@ Important
 7. _layout.tsx - tells how screens in a folder should be laid out such as defining navigation type (stack, tab, modal) and adding header
 8. Link - useful for sending the user to somewhere specific. Router - use it when navigation happens as a result of logic (after a fetch, after a timer)
 9. router methods
-- navigate - 
+- .push - adds a new screen on top of the stack, user can press back to return to the previous screen (go forward to this route)
+- .navigate() - behaves more like web navigation (still keeps history so back usually works), if you are already on that route,
+- it may reuse it instead of stacking duplicates
+- .replace() - replaces the current screen, user cannot go back to the replaced screen, common after login, onboarding or redirects 
+- (useful for auth flows, splash screens, success pages)
+- .back() - goes back one step in the navigation history (pops the stack). If there is no history, behavior can depend on the platform 
+- (may close the app or do nothing)
+- .canGoBack() - returns true or false if there is something to go back to (useful before calling back() to avoid weird behavior)
+- .setParams() - updates the current route\'s search/query parameters without navigating away
+- .prefetch() - preloads the code/data for a route in the background, makes the next navigation to that screen faster
 
 
 What I have learned:
