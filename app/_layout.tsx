@@ -4,7 +4,7 @@ import { theme } from "../theme";
 
 export default function Layout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: theme.colorCerulean }}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: theme.colorCerulean, tabBarInactiveTintColor: theme.colorGrey }}>
       {/*Passing the parameters color and size will allow the icon properties to match the active and inactive state and sizing of the tab*/}
       <Tabs.Screen name="index" options={{
         title: "Shopping List",
@@ -14,6 +14,7 @@ export default function Layout() {
       }} />
       <Tabs.Screen name="counter" options={{
         title: "Counter",
+        headerShown: false,
         tabBarIcon: ({ color, size}) => (
           <Ionicons name="time" size={size} color={color} />
         )

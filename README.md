@@ -57,7 +57,10 @@ Important
 - .prefetch() - preloads the code/data for a route in the background, makes the next navigation to that screen faster
 10. Stack vs Tab vs Modal - stack is pile of screens (List to Details, Home to Settings, Login to Home), tabs is multiple root sections side by side
 - (Home, Search, Profile, Settings), and modal is temporary dialog over the current screen (Add item form, edit profile form, filter or sort dialog)
-
+11. index.tsx - default screen or route for that folder's route path, default content of the screen being projected without doing any navigation yet
+12. _layout.tsx - navigator / layout wrapper for all routes in that folder (not necessarily the single global root)
+13. Nested navigators can lead to two or more navigation headers but can be resolved by hiding the outermost header using headerShown: false (outermost not
+- inside subfolders of app)
 
 What I have learned:
 1. React Native is split into two: JavaScript runtime - implements React code, native - renders UI and provides platform APIs
@@ -68,3 +71,5 @@ What I have learned:
 - Pressable is more customizable, https://reactnative.dev/docs/pressable
 6. Ctrl + Alt + L - reformat the code
 7. SVG is not efficient to native apps which can blow memory/CPU on mobile that can slowdown or crash the app
+8. Pressable is useful because you can make the touchable area larger than the visible icon or button, so users do not need to tap the icon pixel-perfectly
+9. Stack Navigator - 
