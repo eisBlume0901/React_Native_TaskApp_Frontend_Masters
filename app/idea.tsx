@@ -5,7 +5,7 @@ export default function IdeaScreen() {
     <View style={styles.container}>
       <Text style={styles.text}>Idea</Text>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -16,5 +16,5 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
-  }
-})
+  },
+});

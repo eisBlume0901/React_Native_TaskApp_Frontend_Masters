@@ -61,6 +61,14 @@ Important
 12. _layout.tsx - navigator / layout wrapper for all routes in that folder (not necessarily the single global root)
 13. Nested navigators can lead to two or more navigation headers but can be resolved by hiding the outermost header using headerShown: false (outermost not
 - inside subfolders of app)
+14. TextInput - has placeholder, style, value, onChangeText, keyboardType, autoCapitalize, autoComplete properties
+- just find what is the appropriate depending on the business logic requirement
+- returnKeyType - can be done, next (good for filling multi-field forms), search (to trigger search), send (for chat and messages)
+15. type - defines a shape of data helpful for error checking (exclusive to TypeScript)
+16. Type annotation uses :, Value assignment uses =
+- Type annotation is a TypeScript syntax which is useful for catching mistakes early before running the app 
+- Useful for testing initial or dummy data
+- Value assignment is native to every programming languages 
 
 What I have learned:
 1. React Native is split into two: JavaScript runtime - implements React code, native - renders UI and provides platform APIs
@@ -72,4 +80,5 @@ What I have learned:
 6. Ctrl + Alt + L - reformat the code
 7. SVG is not efficient to native apps which can blow memory/CPU on mobile that can slowdown or crash the app
 8. Pressable is useful because you can make the touchable area larger than the visible icon or button, so users do not need to tap the icon pixel-perfectly
-9. Stack Navigator - 
+9. useState - React Hook (state hook declaration), can be used for array destructuring of the value returned by that hook
+- const [value, setValue] = useState(""), set the default argument to empty string (or depending on business logic requirement)
