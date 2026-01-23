@@ -1,5 +1,10 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, TextInput, ScrollView } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  TextInput,
+  FlatList,
+  View,
+} from "react-native";
 import { theme } from "../theme";
 import { ShoppingListItem } from "../components/ShoppingListItem";
 import { useState } from "react";
@@ -26,13 +31,13 @@ const initialList: ShoppingListItem[] = [
 ];
 
 export default function Index() {
-  const [shoppingList, setShoppingList] = useState<ShoppingListItem[]>(initialList);
+  const [shoppingList, setShoppingList] = useState<ShoppingListItem[]>([]);
   const [value, setValue] = useState("");
   const handleSubmit = () => {
     if (value) {
       const newShoppingList = [
         { id: new Date().toISOString(), name: value },
-        ...shoppingList,
+        // ...shoppingList,
       ];
 
       setShoppingList(newShoppingList);
@@ -40,31 +45,33 @@ export default function Index() {
     }
   };
   return (
-    // contentContainerStyle - useful when styling CONTENTS inside a Scrollable View
-    // such as padding, gap, and alignment
-    // style - useful to style the Scrollable View CONTAINER
-    // such as size, flex, background
-    <ScrollView
+    <FlatList
+      ListHeaderComponent={
+        <TextInput
+          placeholder="E.g. Bread"
+          style={styles.textInput}
+          value={value}
+          onChangeText={setValue}
+          keyboardType="default"
+          returnKeyType="done"
+          // onSubmitEditing={handleSubmit}
+        />
+      }
+      data={shoppingList}
+      ListEmptyComponent={
+        <View style={styles.listEmptyContainer}>
+          <Text style={styles.text}>
+            Your shopping list is empty. Please add something you want to buy.
+          </Text>
+        </View>
+      }
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
+      renderItem={({ item }) => <ShoppingListItem name={item.name} />}
       stickyHeaderIndices={[0]}
-    >
-      <TextInput
-        placeholder="E.g. Bread"
-        style={styles.textInput}
-        value={value}
-        onChangeText={setValue}
-        keyboardType="default"
-        returnKeyType="done"
-        onSubmitEditing={handleSubmit}
-      />
-
-      {shoppingList.map((item) => (
-        <ShoppingListItem name={item.name} key={item.id} />
-      ))}
-      <StatusBar style="auto" />
-    </ScrollView>
+    />
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -76,6 +83,12 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingBottom: 24,
   },
+  listEmptyContainer: {
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 18,
+  },
   textInput: {
     borderColor: theme.colorLightGrey,
     borderWidth: 2,
@@ -86,4 +99,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: theme.colorWhite,
   },
+  text: {
+    fontSize: 18,
+    textAlign: "center",
+  }
 });

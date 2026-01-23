@@ -69,6 +69,7 @@ Important
 - Type annotation is a TypeScript syntax which is useful for catching mistakes early before running the app 
 - Useful for testing initial or dummy data
 - Value assignment is native to every programming languages 
+17. FlatList - is more optimized compared to using ScrollView
 
 What I have learned:
 1. React Native is split into two: JavaScript runtime - implements React code, native - renders UI and provides platform APIs
