@@ -16,19 +16,19 @@ type ShoppingListItem = {
 };
 
 const initialList: ShoppingListItem[] = [
-  { id: "1", name: "Banana" },
-  { id: "2", name: "Cream Cheese" },
-  { id: "3", name: "Sourdough Bread" },
+  { id: "1", name: "Banana"},
+  { id: "2", name: "Cream Cheese", completedAtTimestamp: Date.now() },
+  { id: "3", name: "Sourdough Bread", completedAtTimestamp: Date.now() },
   { id: "4", name: "Greek Yogurt"},
-  { id: "5", name: "Vanilla Extract"},
-  { id: "6", name: "Crackers" },
-  { id: "7", name: "Rolled Oats" },
-  { id: "8", name: "Lettuce" },
-  { id: "9", name: "Onions" },
-  { id: "10", name: "Scallions" },
-  { id : "11", name: "Cookies" },
-  { id : "12", name: "Cherries" },
-  { id : "13", name: "Mixed Nuts" },
+  { id: "5", name: "Vanilla Extract", completedAtTimestamp: Date.now() },
+  { id: "6", name: "Crackers", completedAtTimestamp: Date.now() },
+  { id: "7", name: "Rolled Oats", completedAtTimestamp: Date.now() },
+  { id: "8", name: "Lettuce"},
+  { id: "9", name: "Onions"},
+  { id: "10", name: "Scallions", completedAtTimestamp: Date.now() },
+  { id : "11", name: "Cookies", completedAtTimestamp: Date.now() },
+  { id : "12", name: "Cherries"},
+  { id : "13", name: "Mixed Nuts", completedAtTimestamp: Date.now() },
 ];
 
 export default function Index() {
@@ -40,7 +40,7 @@ export default function Index() {
     if (value) {
       const newShoppingList = [
         { id: new Date().toISOString(), name: value },
-        // ...shoppingList,
+        ...shoppingList,
       ];
 
       setShoppingList(newShoppingList);
@@ -65,6 +65,7 @@ export default function Index() {
         return item
       }
     })
+
     setShoppingList(newShoppingList)
   }
 

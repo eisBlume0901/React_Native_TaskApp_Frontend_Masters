@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity, Alert, Pressable } from "react-native";
 import { theme } from "../theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
-
+import Entypo from "@expo/vector-icons/Entypo"
 
 type Props = {
   name: string // name? means the name property is optional by using ?
@@ -37,6 +37,8 @@ export function ShoppingListItem({ name, isCompleted, onDelete, onToggleComplete
       ]}
       onPress={onToggleComplete}
     >
+      <View style={styles.row}>
+        <Entypo name="check" size={24} color={theme.colorRed} />
         <Text
           style={[
             styles.itemText,
@@ -45,13 +47,15 @@ export function ShoppingListItem({ name, isCompleted, onDelete, onToggleComplete
         >
           {name}
         </Text>
-        <TouchableOpacity onPress={handleDelete} activeOpacity={0.8}>
-          <Ionicons
-            name="close-circle"
-            size={24}
-            color={isCompleted ? theme.colorGrey : theme.colorRed}
-          />
-        </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity onPress={handleDelete} activeOpacity={0.8}>
+        <Ionicons
+          name="close-circle"
+          size={24}
+          color={isCompleted ? theme.colorGrey : theme.colorRed}
+        />
+      </TouchableOpacity>
     </Pressable>
   );
 }
@@ -78,5 +82,10 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 18,
     fontWeight: 200,
+    flex: 1,
   },
+  row: {
+    flexDirection: "row",
+    gap: 8,
+  }
 });
