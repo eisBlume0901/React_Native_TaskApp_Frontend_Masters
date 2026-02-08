@@ -57,6 +57,8 @@ Important
 - .prefetch() - preloads the code/data for a route in the background, makes the next navigation to that screen faster
 10. Stack vs Tab vs Modal - stack is pile of screens (List to Details, Home to Settings, Login to Home), tabs is multiple root sections side by side
 - (Home, Search, Profile, Settings), and modal is temporary dialog over the current screen (Add item form, edit profile form, filter or sort dialog)
+- Stack (shows a header at the top), main sections like categories
+- Tab (shows a tab bar at the bottom), navigation history like pages
 11. index.tsx - default screen or route for that folder's route path, default content of the screen being projected without doing any navigation yet
 12. _layout.tsx - navigator / layout wrapper for all routes in that folder (not necessarily the single global root)
 13. Nested navigators can lead to two or more navigation headers but can be resolved by hiding the outermost header using headerShown: false (outermost not
@@ -70,6 +72,8 @@ Important
 - Useful for testing initial or dummy data
 - Value assignment is native to every programming languages 
 17. FlatList - is more optimized compared to using ScrollView
+18. Apply systems designs and frontend architecture (for CarboTrackr, apply the Container/Presentation Model) with Expo-Router
+
 
 What I have learned:
 1. React Native is split into two: JavaScript runtime - implements React code, native - renders UI and provides platform APIs
