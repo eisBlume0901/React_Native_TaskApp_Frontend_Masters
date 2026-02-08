@@ -31,8 +31,10 @@ const initialList: ShoppingListItem[] = [
 ];
 
 export default function Index() {
-  const [shoppingList, setShoppingList] = useState<ShoppingListItem[]>([]);
+  const [shoppingList, setShoppingList] = useState<ShoppingListItem[]>(initialList)
+
   const [value, setValue] = useState("");
+
   const handleSubmit = () => {
     if (value) {
       const newShoppingList = [
@@ -43,7 +45,14 @@ export default function Index() {
       setShoppingList(newShoppingList);
       setValue("");
     }
-  };
+  }
+
+  const handleDelete = (id: string) => {
+    const newShoppingList = shoppingList.filter( (item) => item.id !== id)
+
+    setShoppingList(newShoppingList);
+  }
+
   return (
     <FlatList
       ListHeaderComponent={
@@ -54,7 +63,7 @@ export default function Index() {
           onChangeText={setValue}
           keyboardType="default"
           returnKeyType="done"
-          // onSubmitEditing={handleSubmit}
+          onSubmitEditing={handleSubmit}
         />
       }
       data={shoppingList}
@@ -67,7 +76,12 @@ export default function Index() {
       }
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
-      renderItem={({ item }) => <ShoppingListItem name={item.name} />}
+      renderItem={({ item }) => (
+        <ShoppingListItem
+          name={item.name}
+          onDelete={() => handleDelete(item.id)}
+        />
+      )}
       stickyHeaderIndices={[0]}
     />
   );
