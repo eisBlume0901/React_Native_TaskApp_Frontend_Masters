@@ -13,6 +13,7 @@ type ShoppingListItem = {
   id: string
   name: string
   completedAtTimestamp?: number
+  lastUpdatedAtTimestamp?: number
 };
 
 const initialList: ShoppingListItem[] = [
@@ -39,7 +40,7 @@ export default function Index() {
   const handleSubmit = () => {
     if (value) {
       const newShoppingList = [
-        { id: new Date().toISOString(), name: value },
+        { id: new Date().toISOString(), name: value, lastUpdatedAtTimestamp: Date.now() },
         ...shoppingList,
       ];
 
@@ -60,6 +61,7 @@ export default function Index() {
         return {
           ...item,
           completedAtTimestamp: item.completedAtTimestamp ? undefined : Date.now(),
+          lastUpdatedAtTimestamp: Date.now()
         }
       } else {
         return item
@@ -82,7 +84,7 @@ export default function Index() {
           onSubmitEditing={handleSubmit}
         />
       }
-      data={shoppingList}
+      data={orderShoppingList(shoppingList)}
       ListEmptyComponent={
         <View style={styles.listEmptyContainer}>
           <Text style={styles.text}>
@@ -106,11 +108,35 @@ export default function Index() {
 
 }
 
+
+function orderShoppingList(shoppingList: ShoppingListItem[]) {
+  return shoppingList.sort((item1, item2) => {
+    if (item1.completedAtTimestamp && item2.completedAtTimestamp) {
+      return item2.completedAtTimestamp - item1.completedAtTimestamp
+    }
+
+    if (item1.completedAtTimestamp && !item2.completedAtTimestamp) {
+      return 1;
+    }
+
+    if (!item1.completedAtTimestamp && item2.completedAtTimestamp) {
+      return -1;
+    }
+
+    if (!item1.completedAtTimestamp && !item2.completedAtTimestamp) {
+      return item2.lastUpdatedAtTimestamp - item1.lastUpdatedAtTimestamp
+    }
+
+    return 0;
+  })
+}
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colorWhite,
-    paddingTop: 12,
+    paddingVertical: 12,
   },
   contentContainer: {
     paddingBottom: 24,
