@@ -40,6 +40,7 @@ export function ShoppingListItem({ name, isCompleted, onDelete, onToggleComplete
       <View style={styles.row}>
         <Entypo name="check" size={24} color={theme.colorRed} />
         <Text
+          numberOfLines={1}
           style={[
             styles.itemText,
             isCompleted ? styles.completedText : undefined,
@@ -87,5 +88,6 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     gap: 8,
+    flex: 1,
   }
 });
