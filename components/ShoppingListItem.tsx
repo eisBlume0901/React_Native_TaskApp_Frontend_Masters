@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Alert, Pressable } from "react-native";
 import { theme } from "../theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
@@ -7,9 +7,10 @@ type Props = {
   name: string // name? means the name property is optional by using ?
   isCompleted?: boolean
   onDelete: () => void
+  onToggleComplete?: () => void
 };
 
-export function ShoppingListItem({ name, isCompleted, onDelete }: Props) {
+export function ShoppingListItem({ name, isCompleted, onDelete, onToggleComplete }: Props) {
   const handleDelete = () => {
     Alert.alert(
       `Are you sure you want to delete ${name}?`,
@@ -29,27 +30,29 @@ export function ShoppingListItem({ name, isCompleted, onDelete }: Props) {
   };
 
   return (
-    <View
+    <Pressable
       style={[
         styles.itemContainer,
         isCompleted ? styles.completedContainer : undefined,
       ]}
+      onPress={onToggleComplete}
     >
-      <Text
-        style={[
-          styles.itemText,
-          isCompleted ? styles.completedText : undefined,
-        ]}
-      >
-        {name}
-      </Text>
-      <TouchableOpacity
-        onPress={handleDelete}
-        activeOpacity={0.8}
-      >
-        <Ionicons name="close-circle" size={24} color={isCompleted ? theme.colorGrey : theme.colorRed} />
-      </TouchableOpacity>
-    </View>
+        <Text
+          style={[
+            styles.itemText,
+            isCompleted ? styles.completedText : undefined,
+          ]}
+        >
+          {name}
+        </Text>
+        <TouchableOpacity onPress={handleDelete} activeOpacity={0.8}>
+          <Ionicons
+            name="close-circle"
+            size={24}
+            color={isCompleted ? theme.colorGrey : theme.colorRed}
+          />
+        </TouchableOpacity>
+    </Pressable>
   );
 }
 
