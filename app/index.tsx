@@ -10,8 +10,9 @@ import { ShoppingListItem } from "../components/ShoppingListItem";
 import { useState } from "react";
 
 type ShoppingListItem = {
-  id: string;
-  name: string;
+  id: string
+  name: string
+  completedAtTimestamp?: number
 };
 
 const initialList: ShoppingListItem[] = [
@@ -33,7 +34,7 @@ const initialList: ShoppingListItem[] = [
 export default function Index() {
   const [shoppingList, setShoppingList] = useState<ShoppingListItem[]>(initialList)
 
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("")
 
   const handleSubmit = () => {
     if (value) {
@@ -50,7 +51,21 @@ export default function Index() {
   const handleDelete = (id: string) => {
     const newShoppingList = shoppingList.filter( (item) => item.id !== id)
 
-    setShoppingList(newShoppingList);
+    setShoppingList(newShoppingList)
+  }
+
+  const handleToggleComplete = (id: string) => {
+    const newShoppingList = shoppingList.map( (item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          completedAtTimestamp: item.completedAtTimestamp ? undefined : Date.now(),
+        }
+      } else {
+        return item
+      }
+    })
+    setShoppingList(newShoppingList)
   }
 
   return (
@@ -80,6 +95,8 @@ export default function Index() {
         <ShoppingListItem
           name={item.name}
           onDelete={() => handleDelete(item.id)}
+          onToggleComplete={() => handleToggleComplete(item.id)}
+          isCompleted={Boolean(item.completedAtTimestamp)}
         />
       )}
       stickyHeaderIndices={[0]}
